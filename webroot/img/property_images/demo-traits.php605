@@ -1,0 +1,37 @@
+<?php 
+    class demo {
+        protected $name = 'BMW' ;
+        protected $make = 2021;
+        protected $model = 320;
+
+        public function getModelname(){
+            return $this->model;
+        }
+        public function getMake(){
+            return $this->make;
+        }
+
+        public function getName(){
+            return $this->name;
+        }
+    }
+
+    trait demo1{
+            public $tyres = 6;
+            public $musicSystem = 'JBL';
+    }
+
+    class demo2 extends demo{
+    
+        public $airbags= 4;
+        public $sunroof = true;
+    }
+
+    class demo3 extends demo2{
+        public $seatCover= 4;
+        public $floormats = true;
+    }
+
+    $myobj = new demo3();
+    echo $myobj->musicSystem;
+?>
