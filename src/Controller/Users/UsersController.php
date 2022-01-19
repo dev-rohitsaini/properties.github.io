@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace App\Controller;
 
 namespace App\Controller\Users;
-
+use Cake\Auth\DefaultPasswordHasher;
 use App\Controller\AppController;
+use Cake\Mailer\Mailer;
+use Cake\Datasource\ConnectionManager;
+
+
 
 /**
  * Users Controller
@@ -29,13 +33,8 @@ class UsersController extends AppController
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        // $this->loadComponent('User');
-        // $this->loadComponent('Authe');
-        /*
-         * Enable the following component for recommended CakePHP form protection settings.
-         * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
-         */
-        //$this->loadComponent('FormProtection');
+        $this->connection = ConnectionManager::get('default');
+   
     }
     public function login()
     {
@@ -58,12 +57,7 @@ class UsersController extends AppController
                     return $this->redirect(['controller' => 'Users', 'action' => 'logout']);
                 }
             }
-            // redirect to /articles after login success
-            // $redirect = $this->request->getQuery('redirect', [
-            //     'controller' => 'Users',
-            //     'action' => 'index',
-            // ]);
-            // return $this->redirect($redirect);
+          
         }
         // display error if user submitted and authentication failed
         if ($this->request->is('post') && !$result->isValid()) {
@@ -97,37 +91,7 @@ class UsersController extends AppController
             // $this->Flash->error(__(' this page is not accessible for users'));
         }
     }
-    /**
-     * View method
-     *
-     * @param string|null $id User id.
-     * @return \Cake\Http\Response|null|void Renders view
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    // public function view($id = null)
-    // {
-    //     $values = $this->Authentication->getIdentity();
-    //     $admin = $values->user_type;
-    //     $status = $values->status;
-    //     if ($admin == 2 && $status == 2) {
-    //         $user = $this->Users->get($id, [
-    //             'contain' => ['Comments'],
-    //         ]);
-    //         $this->set(compact('user'));
-    //     } else if ($admin == 1 && $status == 2) {
-    //         $user = $this->Authentication->getIdentity();
-
-    //         $id = $user->id;
-    //         $this->set(compact('user'));
-    //     } else {
-    //         $this->Flash->error(__('Something went wrong'));
-    //     }
-    // }
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
-     */
+   
     public function add()
     {
         $this->viewBuilder()->setLayout('use');
@@ -135,13 +99,7 @@ class UsersController extends AppController
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData(), ['associated' => ['UserProfile']]);
-            //    print_r($user);
-            //    die;
-            // $image = $this->request->getData('user_profile.profile_image');
-            // $name= $image->getClientFilename();
-            // debug($name);
-            // exit;
-// dd($user);
+            
            
             $email = $user->email;
             // dd($this->request->getData());
@@ -172,52 +130,62 @@ class UsersController extends AppController
         }
         $this->set(compact('user'));
     }
-    /**
-     * Edit method
-     * @param string|null $id User id.
-     * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    // public function edit($id = null)
-    // {
-    //     $user = $this->Users->get($id, [
-    //         'contain' => [],
-    //     ]);
-    //     if ($this->request->is(['patch', 'post', 'put'])) {
-    //         $user = $this->Users->patchEntity($user, $this->request->getData());
-    //         if ($this->Users->save($user)) {
-    //             $this->Flash->success(__('The user has been saved.'));
-
-    //             return $this->redirect(['action' => 'index']);
-    //         }
-    //         $this->Flash->error(__('The user could not be saved. Please, try again.'));
-    //     }
-    //     $this->set(compact('user'));
-    // }
-    /**
-     * Delete method
-     * @param string|null $id User id.
-     * @return \Cake\Http\Response|null|void Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    // public function delete($id = null)
-    // {
-    //     $values = $this->Authentication->getIdentity();
-    //     $admin = $values->user_type;
-    //     $status = $values->status;
-
-    //     if ($admin == 2 && $status == 2) {
-    //         $this->request->allowMethod(['post', 'delete']);
-    //         $user = $this->Users->get($id);
-    //         if ($this->Users->delete($user)) {
-    //             $this->Flash->success(__('The user has been deleted.'));
-    //         } else {
-    //             $this->Flash->error(__('The user could not be deleted. Please, try again.'));
-    //         }
-    //         return $this->redirect(['action' => 'index']);
-    //     } else {
-    //         $this->redirect(['action' => 'view', $values->id]);
-    //         return $this->Flash->error(__('contact admin to change the details'));
-    //     }
-    // }
+    public function forget(){
+        if($this->request->is('post')){
+            $email=   $this->request->getData();
+           $hello = $this->Users->find('All')->where(['email'=>implode($email)])->toList();
+        //    dd($hello);
+   if(!empty($hello)){
+   $token = rand(111111 ,999999);
+   $data = $this->connection->update("users", [ "token" => $token ],
+   [ "email" => implode($email) ]);
+   if($data){
+       $this->redirect(['action'=>'reset']);
+   }
+   
+   
+   
+   }else{
+       return $this->Flash->error("The given email is not registred");
+   }
+        
+       
+       }
+       }
+       public function sendMail($token=null){
+           $a= "";
+           $message = "your Appointment is booked on  $a requested time our agent get in touch with you shortly";            
+           $mailer = new Mailer();
+           $mailer->setTransport('mail');
+           $mailer->setFrom(['tqmassociate@gmail.com' => '88Acers'])
+           ->setTo('rohi699t@gmail.com')
+           ->setSubject('Test')
+           ->deliver($message);
+           return $this->redirect(['action'=>'reset',$token]);
+       }
+       public function reset(){
+          
+           if($this->request->is('post')){
+               $user = $this->request->getData();
+   
+               $token =  $user['token'];
+               $password =  $user['password'];
+             
+   $hasher = new DefaultPasswordHasher();
+   $password = $hasher->hash($password);
+   // dd($password);
+               $data = $this->connection->update ("users", [ "password" => $password ],
+   [ "token" => $token ]);
+   if($data){
+   
+       $this->Flash->success("The Password has been updated");
+      return $this->redirect(['action'=>'login']);
+   }
+          
+   // dd($token, $password);
+   
+           }
+   
+       }
+    
 }

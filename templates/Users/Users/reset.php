@@ -8,7 +8,7 @@
 <html>
 
 <head>
-    <title>Login Page</title>
+    <title>Forget Password</title>
     <!--Made with love by Mutiullah Samim -->
 
     <!--Bootsrap 4 CDN-->
@@ -24,6 +24,13 @@
     .message-error{
         color:red;
     }
+    .card {
+ 
+    margin-top: 25%;
+    margin-bottom: auto;
+    width: 650px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
 </style>
 
 
@@ -35,7 +42,7 @@
                 <div class="users form">
                     <div class="card-header">
                         <?= $this->Flash->render() ?>
-                        <h3>Login</h3>
+                        <h3 class="text-center">Reset Password</h3>
                         <div class="d-flex justify-content-end social_icon">
                             <!-- <span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
@@ -51,22 +58,34 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
-                                <?= $this->Form->control('email', ['required' => false, 'class' => 'form-control']) ?>
+                                <?= $this->Form->control('Enter Otp', ['name'=>'token','required' => false, 'class' => 'form-control']) ?>
                             </div>
 
 
                         </div>
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                <?= $this->Form->control('password', ['required' => false, 'class' => 'form-control']) ?>
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+
+                                <?= $this->Form->control('New password', ['name'=>'password','required' => false, 'class' => 'form-control']) ?>
+                            </div>
+
+
+                        </div> <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+
+                                <?= $this->Form->control('confirm Password', ['name'=>'cpassword','required' => false, 'class' => 'form-control']) ?>
                             </div>
 
 
                         </div>
+                      
+
+                        </div>
 
                         <div class="form-group">
-                            <?= $this->Form->submit(__('Login'), [' class' => 'btn float-center login_btn']); ?>
+                            <?= $this->Form->submit(__('Submit'), [' class' => 'btn float-center login_btn']); ?>
                         </div>
 
                         <?= $this->Form->end() ?>
@@ -76,10 +95,7 @@
 
 
 
-                        <div class="form-group">
-                        <?= $this->Html->link(__('Register Here'), ['action' => 'add'], ['class' => 'btn btn-danger']) ?>
-                        <?= $this->Html->link(__('Forget Password'), ['action' => 'forget'], ['class' => 'btn btn-danger']) ?>
-                    </div>  </div>
+                       </div>
 
                 </div>
             </div>
