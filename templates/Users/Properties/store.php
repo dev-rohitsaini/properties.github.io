@@ -13,7 +13,6 @@ echo $this->Html->script('custom');
                            <div class="container">
                              <div class="row">
                                <div class="col-md-12">
-                                 <input type="text" id="input" placeholder="Search" class="float-right" />
                                  <div class="product-bit-title text-center">
                                    <h2>Property That Match Your Requirements</h2>
                                  </div>
