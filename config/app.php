@@ -165,8 +165,8 @@ return [
         'mail'=> [
                 'host' => 'smtp.gmail.com',
                 'port' => 587,
-                'username' =>'tqmassociate@gmail.com', 
-               'password' =>'Tqm@2021',
+                'username' =>'rohi699t@gmail.com', 
+               'password' =>'lqcudexxngbouvhr',
                 'tls' => true,
                 'className' => 'Smtp'
         ]

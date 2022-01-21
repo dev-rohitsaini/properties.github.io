@@ -68,9 +68,9 @@
                         <div class="form-group">
                             <?= $this->Form->submit(__('Login'), [' class' => 'btn float-center login_btn']); ?>
                         </div>
-
-                        <?= $this->Form->end() ?>
                     </div>
+                    <?= $this->Form->end() ?>
+                </div>
                     <div class="card-footer">
                         <div class="d-flex justify-content-center links">
 

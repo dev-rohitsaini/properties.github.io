@@ -8,7 +8,7 @@
 ?>
     
     <?= $this->Html->CSS(['http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600','http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300','http://fonts.googleapis.com/css?family=Raleway:400,100','http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css','http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'])  ?>
-    <?= $this->Html->CSS(['./../css/owl.carousel.css','./../css/style.css','./../css/responsive.css'])  ?>
+    <?= $this->Html->CSS(['./../css/owl.carousel.css','./../css/style.css','./../css/responsive.css','http://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css'])  ?>
 
     <!-- Google Fonts -->
     <!-- <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>

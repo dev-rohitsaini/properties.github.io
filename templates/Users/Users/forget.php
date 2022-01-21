@@ -26,7 +26,7 @@
     }
     .card {
     height: 390px;
-    margin-top: 25%;
+    margin-top: 17%;
     margin-bottom: auto;
     width: 650px;
     background-color: rgba(0, 0, 0, 0.5) !important;

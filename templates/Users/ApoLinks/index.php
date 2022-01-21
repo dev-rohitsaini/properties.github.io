@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+echo $this->Html->script('custom');
+?>
 <body class="hold-transition sidebar-mini">
 
     <head>
@@ -48,7 +50,7 @@
                             <div class="card">
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example" class="display table" width="100%" cellspacing="0" >
                                         <thead>
                                             <tr>
                                                 <th><?= $this->Paginator->sort('id') ?></th>

@@ -140,7 +140,7 @@ class UsersController extends AppController
    $data = $this->connection->update("users", [ "token" => $token ],
    [ "email" => implode($email) ]);
    if($data){
-       $this->redirect(['action'=>'reset']);
+       $this->redirect(['action'=>'sendMail',$token]);
    }
    
    
@@ -153,15 +153,15 @@ class UsersController extends AppController
        }
        }
        public function sendMail($token=null){
-           $a= "";
-           $message = "your Appointment is booked on  $a requested time our agent get in touch with you shortly";            
+       
+           $message = "your one time password is  $token  ";            
            $mailer = new Mailer();
            $mailer->setTransport('mail');
-           $mailer->setFrom(['tqmassociate@gmail.com' => '88Acers'])
-           ->setTo('rohi699t@gmail.com')
-           ->setSubject('Test')
+           $mailer->setFrom(['rohi699t@gmail.com' => '88Acers'])
+           ->setTo('ajatthework18@gmail.com')
+           ->setSubject('Password Reset')
            ->deliver($message);
-           return $this->redirect(['action'=>'reset',$token]);
+           return $this->redirect(['action'=>'reset']);
        }
        public function reset(){
           

@@ -25,7 +25,7 @@
         color:red;
     }
     .card {
- 
+ height: 540px;
     margin-top: 25%;
     margin-bottom: auto;
     width: 650px;
@@ -67,7 +67,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
-                                <?= $this->Form->control('New password', ['name'=>'password','required' => false, 'class' => 'form-control']) ?>
+                                <?= $this->Form->control('New password', ['type'=>'password','name'=>'password','required' => false, 'class' => 'form-control']) ?>
                             </div>
 
 
@@ -75,7 +75,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
-                                <?= $this->Form->control('confirm Password', ['name'=>'cpassword','required' => false, 'class' => 'form-control']) ?>
+                                <?= $this->Form->control('confirm Password', ['type'=>'password','name'=>'cpassword','required' => false, 'class' => 'form-control']) ?>
                             </div>
 
 

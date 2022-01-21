@@ -26,8 +26,8 @@
         color:red;
     }
     .card {
-    height: 800px;
-    margin-top: auto;
+    height: 840px;
+    margin-top: 17%;
     margin-bottom: auto;
     width: 600px;
     background-color: rgba(0, 0, 0, 0.5) !important;
@@ -62,44 +62,45 @@
 
                                 <?= $this->Form->control('user_profile.first_name',['id'=>'first_name','required'=>false,'class'=>'form-control']); ?>
                             </div>
+                        </div>
                             <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
                                 <?= $this->Form->control('user_profile.last_name',['id'=>'last_name','required'=>false,'class'=>'form-control']); ?>
-                            </div><div class="input-group form-group">
+                            </div></div><div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
                                 <?= $this->Form->control('email',['required'=>false,'class'=>'form-control']); ?>
-                            </div><div class="input-group form-group">
+                            </div></div><div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
                                 <?= $this->Form->control('user_profile.contact',['id'=>'contact','required'=>false,'class'=>'form-control']); ?>
-                            </div><div class="input-group form-group">
+                            </div></div><div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
                                 <?= $this->Form->control('user_profile.address',['id'=>'address','required'=>false,'class'=>'form-control']);
                  ?>
-                            </div><div class="input-group form-group">
+                            </div></div><div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
                                 <?= $this->Form->control('user_profile.profile_image',['id'=>'img', 'type' =>'file','required'=>false,'class'=>'form-control']); ?>
-                            </div><div class="input-group form-group">
+                            </div></div><div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
                                 <?= $this->Form->control('password',['required'=>false,'class'=>'form-control']); ?>
-                            </div>
+                            </div></div>
                             <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
                                 <?= $this->Form->control('confirm_password',['type'=>'password','required'=>false,'class'=>'form-control']);?>
-                            </div>
+                            </div></div>
                        
 
                             
@@ -114,8 +115,7 @@
 
 
                         <div class="form-group">
-                        <?= $this->Html->link(__('Register Here'), ['action' => 'add'], ['class' => 'btn btn-danger']) ?>
-                        <?= $this->Html->link(__('Forget Password'), ['action' => 'forget'], ['class' => 'btn btn-danger']) ?>
+                        <?= $this->Html->link(__('Login'), ['action' => 'login'], ['class' => 'btn btn-danger']) ?>
                     </div>  </div>
 
                 </div>

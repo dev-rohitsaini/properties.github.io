@@ -86,7 +86,7 @@ Launched in 2021, 88acres.com, India’s No. 1 property portal, deals with every
 
 
 
-    <?php  echo $this->Html->script(['https://code.jquery.com/jquery.min.js','https://code.jquery.com/jquery-3.6.0.min.js','http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js']); ?>
+    <?php  echo $this->Html->script(['https://code.jquery.com/jquery.min.js','https://code.jquery.com/jquery-3.6.0.min.js','http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js','http://code.jquery.com/jquery-1.12.0.min.js','http://cdn.datatables.net/1.10.1/js/jquery.dataTables.min.js','jquery.inputsearch.js']); ?>
     <?php  echo $this->Html->script(['owl.carousel.min.js','jquery.sticky.js','jquery.easing.1.3.min.js','main.js','extrafunctions.js']);
     echo $this->Html->script('jquery.validate.js');
 echo $this->Html->script('regit.js');?>

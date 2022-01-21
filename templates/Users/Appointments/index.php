@@ -4,11 +4,12 @@
  * @var \App\Model\Entity\Appointment[]|\Cake\Collection\CollectionInterface $appointments
  */
 ?>
+
 <div class="appointments index content">
     
     <h3><?= __('Appointments') ?></h3>
     <div class="table-responsive">
-        <table>
+        <table   >
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('Refernce number') ?></th>
