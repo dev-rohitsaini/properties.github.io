@@ -94,6 +94,7 @@ class UsersController extends AppController
    
     public function add()
     {
+    
         $this->viewBuilder()->setLayout('use');
         // $this->Users->validationErrors;
         $user = $this->Users->newEmptyEntity();
