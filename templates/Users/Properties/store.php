@@ -31,12 +31,12 @@ echo $this->Html->script('custom');
 </thead>
 
 <?php foreach ($properties as $property) : ?>
-  <Tr>
+  <tr>
     <td><?= h($property->property_title); ?></td>
     <td><?= h($property->created_date) ?></td>
     <td><a href='<?php echo $this->Url->build(['controller' => 'Properties', 'action' => 'view', $property->id]) ?> '>
             <?= $this->Html->image($property->property_image, ['height' => '500', 'width' => '300']) ?></a></td>
-  </Tr>
+  </tr>
   <?php endforeach; ?>
 
 </table>

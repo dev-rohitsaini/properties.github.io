@@ -70,9 +70,11 @@ class ErrorController extends AppController
     {
 
 
-        //   pr($this->response->getStatusCode());
-        // exit;
-        // if ($this->response->getStatusCode() == '403') {
+        //  pr($this->response->getStatusCode());
+        
+        //  exit;
+        
+         // if ($this->response->getStatusCode() == '403') {
         //     return $this->redirect(
         //         array(
         //             'controller' => 'Users',

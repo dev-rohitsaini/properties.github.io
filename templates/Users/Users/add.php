@@ -104,10 +104,10 @@
                        
 
                             
+                            <div class="form-group">
+                                <?=  $this->Form->button(__('Submit'),['class'=>'btn btn-warning form-control'])  ?>
+                            </div>
                             <?= $this->Form->end() ?>
-                        </div>
-                        <div class="form-group">
-                            <?=  $this->Form->button(__('Submit'),['class'=>'btn btn-warning form-control'])  ?>
                         </div>
                     <div class="card-footer">
                         <div class="d-flex justify-content-center links">
