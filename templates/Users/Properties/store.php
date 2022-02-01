@@ -7,31 +7,31 @@
                         ?>
 
                        <body>
-                       <table>
-                         <form >
-                         <input type="text" id="search" class="form" autocomplete="off">
-                         </form>
-                         <tr><td id="table">
-
-                         </td></tr>
-                       </table>
-                         <table>
-                         </table>
-
-
-
+                   
+                         
+                         
                          <div class="product-big-title-area">
                            <div class="container">
                              <div class="row">
                                <div class="col-md-12">
                                  <div class="product-bit-title text-center">
                                    <h2>Property That Match Your Requirements</h2>
-                                 </div>
-                               </div>
-                             </div>
-                           </div>
-                         </div>
-
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <table>
+                            <form >
+                            <input type="text" id="search" class="form" autocomplete="off" value="Search here">
+                            </form>
+                            <tr><td id="table">
+   
+                            </td></tr>
+                          </table>
+                       
+                        
 
                          <table id="example" class="display table" width="100%" cellspacing="0" style="margin-left: 25px;">
                            <thead>
