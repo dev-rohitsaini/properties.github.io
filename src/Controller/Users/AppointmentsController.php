@@ -60,13 +60,14 @@ class AppointmentsController extends AppController
 
     public function add($id)
     {
-        $apolo=$this->fetchTable('ApoLinks  ');
+        $apolo=$this->fetchTable('ApoLinks');
         $pid=$id;
         // dd($id);
         $values=$this->Authentication->getIdentity();
         $uid = $values->id;
         // dd($uid);
 $match=$apolo->find('All')->Where(['AND'=>['user_id'=>$uid ,'properties_id'=>$pid]])->toList();
+// dd($match);
 if(!empty($match)){ 
     $this->redirect(['controller'=>'properties','action' => 'view',$pid]);
     return $this->Flash->error(__('Appointment Is alredy registerd '));
@@ -76,7 +77,7 @@ if(!empty($match)){
         $appointment = $this->Appointments->newEmptyEntity();
         if ($this->request->is('post')) {
             $appointment = $this->Appointments->patchEntity($appointment, $this->request->getData());
-
+// dd($appointment);
             if ($this->Appointments->save($appointment)) {
 //getting last inserted id
                 $aid=$appointment->id;
